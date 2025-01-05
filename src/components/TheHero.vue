@@ -12,6 +12,14 @@ defineProps<{
 </template>
 
 <style scoped>
+.blue {
+  text-decoration: none;
+  background: linear-gradient(90deg, #00c6ff, #932be4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
