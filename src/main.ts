@@ -2,7 +2,7 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
-import FooTer from './FooTer.vue'
+import TheFooter from './components/TheFooter.vue'
 
 createApp(App).mount('#app')
-createApp(FooTer).mount('#footer')
+createApp(TheFooter).mount('#footer')
