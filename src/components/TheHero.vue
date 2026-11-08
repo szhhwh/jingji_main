@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import logoUrl from '@/assets/logo.webp'
+import logoUrl from '@/assets/logo.svg'
+import logoDarkUrl from '@/assets/logo-dark.svg'
 
 defineProps<{
   msg: string
+  theme: 'light' | 'dark'
 }>()
 </script>
 
 <template>
   <div class="hero">
-    <img :src="logoUrl" alt="Jingji logo" class="logo" width="112" height="112" />
+    <img :src="theme === 'dark' ? logoDarkUrl : logoUrl" alt="荆棘鸟文学社标志" class="logo" width="112" height="112" />
 
     <div class="greetings">
       <h1 class="title">{{ msg }}</h1>
@@ -31,8 +33,6 @@ defineProps<{
   width: 112px;
   height: 112px;
   object-fit: contain;
-  filter: var(--logo-filter);
-  transition: filter 0.3s ease;
 }
 
 .greetings {

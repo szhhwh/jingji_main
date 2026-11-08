@@ -21,7 +21,6 @@
 
   --ambient-glow: radial-gradient(circle at 20% 30%, rgba(107, 56, 125, 0.045) 0%, transparent 55%);
 
-  --logo-filter: contrast(1.08);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,7 +44,6 @@
       transparent 55%
     );
 
-    --logo-filter: invert(1) brightness(0.96) contrast(1.08);
   }
 }
 
@@ -65,7 +63,6 @@
 
   --ambient-glow: radial-gradient(circle at 20% 30%, rgba(147, 83, 186, 0.09) 0%, transparent 55%);
 
-  --logo-filter: invert(1) brightness(0.96) contrast(1.08);
 }
 
 *,

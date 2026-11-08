@@ -92,7 +92,7 @@ onMounted(() => {
 
     <div class="content-stage">
       <header class="hero-column">
-        <Hero msg="荆棘鸟文学社" />
+        <Hero msg="荆棘鸟文学社" :theme="theme" />
       </header>
 
       <main class="list-column">
