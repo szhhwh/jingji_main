@@ -5,28 +5,21 @@ const year = ref(new Date().getFullYear())
 </script>
 
 <template>
-  <div class="footer-wrapper">
-    <div class="footer">版权所有 &copy; 2023-{{ year }} 荆棘鸟文学社</div>
-  </div>
+  <footer class="footer-wrapper">
+    <p class="footer">版权所有 &copy; 2023-{{ year }} 荆棘鸟文学社</p>
+  </footer>
 </template>
 
 <style scoped>
 .footer-wrapper {
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  padding: 1.5rem 0 2rem;
   text-align: center;
-  display: flex;
-  justify-items: center;
-  justify-content: space-evenly;
-  align-items: center;
-  .footer {
-    font-size: 14px;
-    margin-top: 8px;
-    margin-left: 16px;
-    margin-right: 16px;
-    margin-bottom: 8px;
-    display: block;
-  }
+}
+
+.footer {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
 }
 </style>

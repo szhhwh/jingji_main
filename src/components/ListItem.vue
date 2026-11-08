@@ -1,87 +1,98 @@
+<script setup lang="ts">
+defineProps<{
+  href: string
+}>()
+</script>
+
 <template>
-  <div class="item">
-    <i>
+  <a :href="href" class="nav-item" rel="noopener">
+    <span class="item-icon">
       <slot name="icon"></slot>
-    </i>
-    <div class="details">
-      <h3>
+    </span>
+
+    <div class="item-content">
+      <h2 class="item-title">
         <slot name="heading"></slot>
-      </h3>
-      <slot></slot>
+      </h2>
+      <p class="item-desc">
+        <slot></slot>
+      </p>
     </div>
-  </div>
+
+    <span class="item-arrow" aria-hidden="true">→</span>
+  </a>
 </template>
 
 <style scoped>
-.item {
-  margin-top: 2rem;
+.nav-item {
   display: flex;
-  position: relative;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.75rem 0.75rem;
+  border-bottom: 1px solid var(--border-hairline);
+  transition: border-color 0.25s ease;
 }
 
-.details {
+.nav-item:first-of-type {
+  border-top: 1px solid var(--border-hairline);
+}
+
+.nav-item:hover {
+  border-bottom-color: var(--border-hover);
+}
+
+.item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-top: 0.15rem;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.nav-item:hover .item-icon {
+  transform: translateY(-1px);
+}
+
+.item-content {
   flex: 1;
-  margin-left: 1rem;
+  min-width: 0;
 }
 
-i {
-  display: flex;
-  place-items: center;
-  place-content: center;
-  width: 32px;
-  height: 32px;
-
-  color: var(--color-text);
+.item-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  transition: color 0.25s ease;
 }
 
-h3 {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 0.4rem;
-  color: var(--color-heading);
+.nav-item:hover .item-title {
+  color: var(--accent-primary);
 }
 
-@media (min-width: 1024px) {
-  .item {
-    margin-top: 0;
-    padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
-  }
+.item-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
 
-  i {
-    top: calc(50% - 25px);
-    left: -26px;
-    position: absolute;
-    border: 1px solid var(--color-border);
-    background: var(--color-background);
-    border-radius: 8px;
-    width: 50px;
-    height: 50px;
-  }
+.item-arrow {
+  align-self: center;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
 
-  .item:before {
-    content: ' ';
-    border-left: 1px solid var(--color-border);
-    position: absolute;
-    left: 0;
-    bottom: calc(50% + 25px);
-    height: calc(50% - 25px);
-  }
-
-  .item:after {
-    content: ' ';
-    border-left: 1px solid var(--color-border);
-    position: absolute;
-    left: 0;
-    top: calc(50% + 25px);
-    height: calc(50% - 25px);
-  }
-
-  .item:first-of-type:before {
-    display: none;
-  }
-
-  .item:last-of-type:after {
-    display: none;
-  }
+.nav-item:hover .item-arrow {
+  color: var(--accent-primary);
+  transform: translateX(5px);
 }
 </style>
